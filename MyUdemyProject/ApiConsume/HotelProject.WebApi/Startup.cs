@@ -31,8 +31,23 @@ namespace HotelProject.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<Context>();
+
             services.AddScoped<IStaffDal,EfStaffDal>();
             services.AddScoped<IStaffService,StaffManager>();
+
+            services.AddScoped<IServicesDal, EfServiceDal>();
+            services.AddScoped<IServiceService, ServiceManager>();
+
+            services.AddScoped<IRoomDal, EfRoomDal>();
+            services.AddScoped<IRoomService, RoomManager>();
+
+            services.AddScoped<ISubscribeDal, EfSubscribeDal>();
+            services.AddScoped<ISubscribeService, SubscribeManager>();
+
+            services.AddScoped<ITestimonialDal, EfTestimonialDal>();
+            services.AddScoped<ITestimonialService, TestimonialManager>();
+
+
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
